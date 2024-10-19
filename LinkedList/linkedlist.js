@@ -75,13 +75,11 @@ class LinkedList {
     let current = this.head;
     let count = 0;
     let previous;
-    let temp;
     while (count < index) {
       previous = current;
       current = current.next;
       count++;
     }
-    temp = current;
     previous.next = current.next;
     this.size--;
   }
@@ -89,6 +87,17 @@ class LinkedList {
   clearList() {
     this.head = null;
     this.size = 0;
+  }
+
+  deleteTail() {
+    let current = this.head;
+    let previous;
+    while (current.next) {
+      previous = current;
+      current = current.next;
+    }
+    previous.next = null;
+    this.size--;
   }
 
   printData() {
@@ -108,5 +117,6 @@ ll.printData();
 ll.getAtIndex(1);
 ll.removeAtIndex(1);
 ll.printData();
+ll.deleteTail();
 ll.clearList();
 ll.printData();
