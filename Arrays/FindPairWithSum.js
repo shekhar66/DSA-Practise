@@ -11,3 +11,20 @@ const findPairWithGivenSum = (arr, sum) => {
   return finalResults;
 };
 console.log(findPairWithGivenSum([1, 2, 3, 10, 5, 6, 3, 2, 6, 8, 4], 12));
+
+function findPairWithSum(arr, sum) {
+  let [i, j] = [0, arr.length - 1];
+  arr.sort((a, b) => a - b);
+  while (i < j) {
+    let currSum = arr[i] + arr[j];
+    if (currSum === sum) {
+      return true;
+    } else if (currSum < sum) {
+      i++;
+    } else if (currSum > sum) {
+      j--;
+    }
+  }
+  return false;
+}
+// console.log(findPairWithSum([1, 2, 3, 10, 5, 6, 3, 2, 6, 8, 4], 12)); //true
