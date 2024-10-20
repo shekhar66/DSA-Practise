@@ -6,3 +6,13 @@ const reverseString = (str) => {
   return res;
 };
 console.log(reverseString("rahkehS"));
+
+// Using Recursion
+
+const reverse = (str) => {
+  if (str === "") {
+    return "";
+  }
+  return reverse(str.substr(1)) + str.charAt(0);
+};
+console.log(reverse("rahkehS"));
